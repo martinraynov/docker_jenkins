@@ -12,7 +12,7 @@ make build
 ## Start the container
 
 ```bash
-make run
+make start
 ```
 
 ## Stop the container

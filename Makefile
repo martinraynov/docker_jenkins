@@ -8,8 +8,8 @@ help: ## Prints this help message
 ### MAIN FUNCTIONS ###
 ######################
 
-.PHONY: run
-run: ## Start the Jenkins docker container
+.PHONY: start
+start: ## Start the Jenkins docker container
 	$(info $(M) Starting an instance of jenkins)
 	@docker stack rm jenkins
 	@docker stack deploy -c ./docker/docker-compose-swarm.yml jenkins
