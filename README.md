@@ -5,12 +5,18 @@ To change the jenkins home folder add the new path to the *docker/docker-compose
 
 ## Build the image
 
-```
+```bash
 make build
 ```
 
 ## Start the container
 
-```
+```bash
 make run
+```
+
+## Stop the container
+
+```bash
+make stop
 ```

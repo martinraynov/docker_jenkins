@@ -14,6 +14,11 @@ run: ## Start the Jenkins docker container
 	@docker stack rm jenkins
 	@docker stack deploy -c ./docker/docker-compose-swarm.yml jenkins
 
+.PHONY: stop
+stop: ## Stopping running jenkins instances
+	$(info $(M) Stopping jenkins instance)
+	@docker stack rm jenkins
+
 .PHONY: build
 build: ## Build the local jenkins image
 	$(info $(M) Building local jenkins image : localhost/jenkins:lts)
