@@ -1,0 +1,30 @@
+version: '3.5'
+
+networks:
+  default:
+    external: true
+    name: lb-common
+
+volumes:
+  jenkins_log:
+    driver: local
+
+services:
+  jenkins:
+      image: localhost/jenkins:lts
+      environment:
+        - JAVA_OPTS=-Djava.awt.headless=true
+        - JENKINS_HOME=/srv/jenkins/home
+      deploy:
+        replicas: 1
+        labels:
+          traefik.frontend.rule: "Host: jenkins-dev.navitia.io"
+          traefik.enable: "true"
+          traefik.backend: "jenkins"
+          traefik.port: "8080"
+      networks:
+      - default
+      volumes:
+      - /srv/jenkins/home:/srv/jenkins/home:rw
+      - jenkins_log:/var/log/jenkins:rw
+      - /var/run/docker.sock:/var/run/docker.sock:rw
