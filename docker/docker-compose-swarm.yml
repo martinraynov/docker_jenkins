@@ -12,6 +12,7 @@ volumes:
 services:
   jenkins:
       image: localhost/jenkins:lts
+      user: ${_UID}:${GID}
       environment:
         - JAVA_OPTS=-Djava.awt.headless=true
         - JENKINS_HOME=/srv/jenkins/home
