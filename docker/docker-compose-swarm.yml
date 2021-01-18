@@ -19,7 +19,7 @@ services:
       deploy:
         replicas: 1
         labels:
-          traefik.frontend.rule: "Host: jenkins-dev.navitia.io"
+          traefik.frontend.rule: "Host: jenkins.local.io"
           traefik.enable: "true"
           traefik.backend: "jenkins"
           traefik.port: "8080"
